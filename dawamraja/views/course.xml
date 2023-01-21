@@ -10,7 +10,7 @@
                 <sheet>
                     <group>
                         <!-- Add your fields here -->
-                        <field name="name"/>
+                        <field name="name"  modifiers="{'unique': true}" on_change="_onchange_name"/>
                     </group>
                     <notebook>
                         <page name="description_page" string="Description">
