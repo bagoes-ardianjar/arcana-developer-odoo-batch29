@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="rifkiacademy.list">
+      <field name="name">rifkiacademy list</field>
+      <field name="model">rifkiacademy.rifkiacademy</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="rifkiacademy.action_window">
+      <field name="name">rifkiacademy window</field>
+      <field name="res_model">rifkiacademy.rifkiacademy</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="rifkiacademy.action_server">
+      <field name="name">rifkiacademy server</field>
+      <field name="model_id" ref="model_rifkiacademy_rifkiacademy"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="rifkiacademy" id="rifkiacademy.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="rifkiacademy.menu_1" parent="rifkiacademy.menu_root"/>
+    <menuitem name="Menu 2" id="rifkiacademy.menu_2" parent="rifkiacademy.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="rifkiacademy.menu_1_list" parent="rifkiacademy.menu_1"
+              action="rifkiacademy.action_window"/>
+    <menuitem name="Server to list" id="rifkiacademy" parent="rifkiacademy.menu_2"
+              action="rifkiacademy.action_server"/>
+-->
+  </data>
+</odoo>
