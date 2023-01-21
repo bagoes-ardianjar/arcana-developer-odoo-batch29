@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="course1" model="ario_academy.course">
+        <field name="name">Course Technical Odoo</field>
+        <field name="description">Technical odoo 15 Basic Weekend</field>
+    </record>
+    <record id="course2" model="ario_academy.course">
+        <field name="name">Course Python Advance</field>
+        <field name="description">Course Python Advance</field>
+    </record>
+</odoo>
