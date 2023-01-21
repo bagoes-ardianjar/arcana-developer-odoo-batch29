@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- model.name action window -->
+    <record id="course_action" model="ir.actions.act_window">
+        <field name="name">Course</field>
+        <field name="res_model">bagoesacademy.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="bagoesacademy_menu_root" name="Bagoes Academy" sequence="10"/>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="course_menu_act" name="Course" parent="bagoesacademy_menu_root" action="course_action" sequence="10"/>
+
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- dawamraja.course form view -->
+    <record id="dawamraja.course_view_form" model="ir.ui.view">
+        <field name="name">dawamraja.course.view.form</field>
+        <field name="model">dawamraja.course</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page name="description_page" string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- dawamraja.course tree view -->
+    <record id="course_view_tree" model="ir.ui.view">
+        <field name="name">dawamraja.course.view.tree</field>
+        <field name="model">dawamraja.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- model.name action window -->
+    <record id="course_module_action" model="ir.actions.act_window">
+        <field name="name">Course</field>
+        <field name="res_model">dawamraja.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="course_menu_root" name="Course Odoo" sequence="1"/>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="course_menu_act" 
+        name="Course" 
+        parent="course_menu_root"
+        action="course_module_action" 
+        sequence="10"/>
+
+</odoo>
