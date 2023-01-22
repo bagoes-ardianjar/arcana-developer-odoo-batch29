@@ -2,7 +2,7 @@
 # from odoo import http
 
 
-# class Naufalacademy(http.Controller):
+# class naufalacademy(http.Controller):
 #     @http.route('/naufalacademy/naufalacademy', auth='public')
 #     def index(self, **kw):
 #         return "Hello, world"
