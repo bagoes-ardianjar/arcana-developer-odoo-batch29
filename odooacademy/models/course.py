@@ -6,5 +6,5 @@ class Course(models.Model):
     _name = 'odooacademy.course'
     _description = 'odooacademy.course'
 
-    name = fields.Char('Title', required=True)
+    name = fields.Char('Title', required=True, index=True)
     description = fields.Text('Description')
