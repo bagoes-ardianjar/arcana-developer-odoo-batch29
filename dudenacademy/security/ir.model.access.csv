@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_dudenacademy_course,dudenacademy.course,model_dudenacademy_course,,1,1,1,1
+access_dudenacademy_session,dudenacademy.session,model_dudenacademy_session,,1,1,1,1
