@@ -7,4 +7,3 @@ class InheritUsers(models.Model):
     _inherit = 'res.users'
 
     is_instructor = fields.Boolean('Is Instructor')
-    # is_teacher = fields.Boolean('Is Teacher')
