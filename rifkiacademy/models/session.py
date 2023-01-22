@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from odoo.exceptions import ValidationError
 from odoo import models, fields, api
 
 class Session(models.Model):
@@ -8,7 +8,7 @@ class Session(models.Model):
 
 	name = fields.Char('Name', required=True, index=True)
 	course_id = fields.Many2one('rifkiacademy.course', string='Course')
-	user_id = fields.Many2one('res.users', string='Instructor', domain="[('is_instructor','=',True)]")
+	partner_id = fields.Many2one('res.partner', string='Instructor', domain="[('is_instructor','=',True)]")
 	# user_id = fields.Many2one('res.users', string='Instructor', domain="[('is_instructor','=',True),('is_teacher','=',True)]") #ini dipake kalau and
 	# user_id = fields.Many2one('res.users', string='Instructor', domain="['|',('is_instructor','=',True),('is_teacher','=',True)]") #ini dipake kalau or
 	partner_ids = fields.Many2many('res.partner', string='Attendees')
@@ -43,3 +43,8 @@ class Session(models.Model):
 							'message': "Participants more than {}".format(int(self.number_of_seats)),
 						}
 					}
+	@api.constrains('partner_ids','partner_id')
+	def check_attendees(self):
+		for rec in self:
+			if rec.partner_id in rec.partner_ids:
+				raise ValidationError("Your attendess is instructor: %s" % rec.partner_id.name)
