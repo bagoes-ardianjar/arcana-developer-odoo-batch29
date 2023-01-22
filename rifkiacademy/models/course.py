@@ -8,6 +8,8 @@ class course(models.Model):
     _description = 'rifkiacademy.course'
 
     name = fields.Char('Title', required=True)
+    user_id = fields.Many2one('res.users', string='Responsible User')
+    session_ids = fields.One2many('rifkiacademy.session', 'course_id', string='Sessions')
     description = fields.Text('Description')
 
     # value = fields.Integer()

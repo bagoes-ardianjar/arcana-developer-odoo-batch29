@@ -25,10 +25,14 @@
                     <group>
                         <!-- Add your fields here -->
                         <field name="name"  modifiers="{'unique': true}" on_change="_onchange_name"/>
+                        <field name="user_id"/>
                     </group>
                     <notebook>
                         <page name="description_page" string="Description">
                             <field name="description"/>
+                        </page>
+                        <page string="Sessions" name="session_ids">
+                            <field name="session_ids"/>
                         </page>
                     </notebook>
                 </sheet>
@@ -44,6 +48,8 @@
             <tree>
                 <!-- Add your fields here -->
                 <field name="name"/>
+                <field name="user_id"/>
+                <field name="description"/>
             </tree>
         </field>
     </record>

@@ -27,7 +27,8 @@
         'views/views.xml',
         'views/templates.xml',
         'data/coursedata.xml',
-        'views/course.xml'
+        'views/course.xml',
+        'views/session.xml'
     ],
     # only loaded in demonstration mode
     # 'demo': [

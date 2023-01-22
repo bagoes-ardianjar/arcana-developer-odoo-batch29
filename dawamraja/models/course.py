@@ -8,6 +8,9 @@ class Course(models.Model):
     name = fields.Char(string="Course Name", required=True)
     description = fields.Text(string="Description")
 
+    user_id = fields.Many2one('res.users', string='Responsible User')
+    session_ids = fields.One2many('dawamraja.session', 'course_id', string='Sessions')
+
     # SQL Constraints validation unique
     # _sql_constraints = [('name_unique', 'UNIQUE(name)', 'Course name must be unique')]
 

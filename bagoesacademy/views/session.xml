@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- odooacademy.session tree view -->
+    <!-- bagoesacademy.session tree view -->
     <record id="bagoesacademy.session_view_tree" model="ir.ui.view">
         <field name="name">bagoesacademy.session.view.tree</field>
         <field name="model">bagoesacademy.session</field>
@@ -16,7 +16,7 @@
         </field>
     </record>
 
-    <!-- odooacademy.session form view -->
+    <!-- bagoesacademy.session form view -->
     <record id="bagoesacademy.session_view_form" model="ir.ui.view">
         <field name="name">bagoesacademy.session.view.form</field>
         <field name="model">bagoesacademy.session</field>
@@ -39,13 +39,16 @@
                         <page string="Description" name="description">
                             <field name="description"/>
                         </page>
+                        <page string="Attendees" name="partner_ids">
+                            <field name="partner_ids"/>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <!-- odooacademy.session action window -->
+    <!-- bagoesacademy.session action window -->
     <record id="bagoesacademy_session_action" model="ir.actions.act_window">
         <field name="name">Session</field>
         <field name="res_model">bagoesacademy.session</field>

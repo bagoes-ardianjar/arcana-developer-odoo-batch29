@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Naufal TESTSSSS",
+    'name': "Naufal Academy",
 
     'summary': """
         Addons training batch 29""",
@@ -9,8 +9,8 @@
         Addons training batch 29"
     """,
 
-    'author': "Naufal Nabila",
-    'website': "http://www.instagram.com/naufalnabila_",
+    'author': "Technoly",
+    'website': "http://www.technology.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -27,14 +27,21 @@
         'views/views.xml',
         'views/templates.xml',
         'data/course_data.xml',
-        'views/course.xml'
+        'views/course.xml',
+        'views/session.xml'
     ],
     # only loaded in demonstration mode
     # 'demo': [
     #     'demo/demo.xml',
     # ],
 
+    'application': True,  # Main Domain -> Bisa dicari di dalam apps
+
+    'installable': True,  # Biar ada button install
+
+    'auto_install': False,
+
     'lisence': 'LGPL-3',
 
-    'sequence': -100,
+    'sequence': 100,
 }
