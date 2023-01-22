@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- dawamraja.course search view -->
+    <record id="dawamraja_course_view_search" model="ir.ui.view">
+        <field name="name">dawamraja.course.view.search</field>
+        <field name="model">dawamraja.course</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
+
+
     <!-- dawamraja.course form view -->
-    <record id="dawamraja.course_view_form" model="ir.ui.view">
+    <record id="dawamraja_course_view_form" model="ir.ui.view">
         <field name="name">dawamraja.course.view.form</field>
         <field name="model">dawamraja.course</field>
         <field name="arch" type="xml">
@@ -11,10 +25,14 @@
                     <group>
                         <!-- Add your fields here -->
                         <field name="name"  modifiers="{'unique': true}" on_change="_onchange_name"/>
+                        <field name="user_id"/>
                     </group>
                     <notebook>
                         <page name="description_page" string="Description">
                             <field name="description"/>
+                        </page>
+                        <page string="Sessions" name="session_ids">
+                            <field name="session_ids"/>
                         </page>
                     </notebook>
                 </sheet>
@@ -30,6 +48,8 @@
             <tree>
                 <!-- Add your fields here -->
                 <field name="name"/>
+                <field name="user_id"/>
+                <field name="description"/>
             </tree>
         </field>
     </record>

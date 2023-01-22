@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_rifkiacademy_rifkiacademy,rifkiacademy.rifkiacademy,model_rifkiacademy_rifkiacademy,base.group_user,1,1,1,1
+access_rifkiacademy_course,rifkiacademy.course,model_rifkiacademy_course,,1,1,1,1
+access_rifkiacademy_session,rifkiacademy.session,model_rifkiacademy_session,,1,1,1,1

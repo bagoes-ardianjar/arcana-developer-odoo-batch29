@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Odoo Academy",
+    'name': "Naufal Academy",
 
     'summary': """
         Addons training batch 29""",
@@ -23,12 +23,27 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'data/course_data.xml',
+        'views/course.xml',
+        'views/session.xml',
+        'views/user.xml',
+        'views/partner.xml'
     ],
     # only loaded in demonstration mode
     # 'demo': [
     #     'demo/demo.xml',
     # ],
+
+    'application': True,  # Main Domain -> Bisa dicari di dalam apps
+
+    'installable': True,  # Biar ada button install
+
+    'auto_install': False,
+
+    'lisence': 'LGPL-3',
+
+    'sequence': 100,
 }

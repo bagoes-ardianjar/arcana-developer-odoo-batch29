@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
+                <field name="user_id"/>
                 <field name="description"/>
             </tree>
         </field>
@@ -21,14 +22,31 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="user_id"/>
                     </group>
                     <notebook>
                         <page string="Description" name="description">
                             <field name="description"/>
                         </page>
+                        <page string="Sessions" name="session_ids">
+                            <field name="session_ids"/>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <!-- odooacademy.course search view -->
+    <record id="odooacademy_course_view_search" model="ir.ui.view">
+        <field name="name">odooacademy.course.view.search</field>
+        <field name="model">odooacademy.course</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="description"/>
+            </search>
         </field>
     </record>
 
