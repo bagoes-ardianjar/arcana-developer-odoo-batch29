@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_dawamraja_course,dawamraja_course,model_dawamraja_course,,1,1,1,1
+access_dawamraja_session,dawamraja_session,model_dawamraja_session,,1,1,1,1
