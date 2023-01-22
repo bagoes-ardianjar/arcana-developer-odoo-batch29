@@ -2,9 +2,9 @@
   <data>
     <!-- explicit list view definition -->
 <!--
-    <record model="ir.ui.view" id="odooacademy.list">
-      <field name="name">odooacademy list</field>
-      <field name="model">odooacademy.odooacademy</field>
+    <record model="ir.ui.view" id="naufalacademy.list">
+      <field name="name">naufalacademy list</field>
+      <field name="model">naufalacademy.naufalacademy</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
@@ -17,18 +17,18 @@
 
     <!-- actions opening views on models -->
 <!--
-    <record model="ir.actions.act_window" id="odooacademy.action_window">
-      <field name="name">odooacademy window</field>
-      <field name="res_model">odooacademy.odooacademy</field>
+    <record model="ir.actions.act_window" id="naufalacademy.action_window">
+      <field name="name">naufalacademy window</field>
+      <field name="res_model">naufalacademy.naufalacademy</field>
       <field name="view_mode">tree,form</field>
     </record>
 -->
 
     <!-- server action to the one above -->
 <!--
-    <record model="ir.actions.server" id="odooacademy.action_server">
-      <field name="name">odooacademy server</field>
-      <field name="model_id" ref="model_odooacademy_odooacademy"/>
+    <record model="ir.actions.server" id="naufalacademy.action_server">
+      <field name="name">naufalacademy server</field>
+      <field name="model_id" ref="model_naufalacademy_naufalacademy"/>
       <field name="state">code</field>
       <field name="code">
         action = {
@@ -42,19 +42,19 @@
 
     <!-- Top menu item -->
 <!--
-    <menuitem name="odooacademy" id="odooacademy.menu_root"/>
+    <menuitem name="naufalacademy" id="naufalacademy.menu_root"/>
 -->
     <!-- menu categories -->
 <!--
-    <menuitem name="Menu 1" id="odooacademy.menu_1" parent="odooacademy.menu_root"/>
-    <menuitem name="Menu 2" id="odooacademy.menu_2" parent="odooacademy.menu_root"/>
+    <menuitem name="Menu 1" id="naufalacademy.menu_1" parent="naufalacademy.menu_root"/>
+    <menuitem name="Menu 2" id="naufalacademy.menu_2" parent="naufalacademy.menu_root"/>
 -->
     <!-- actions -->
 <!--
-    <menuitem name="List" id="odooacademy.menu_1_list" parent="odooacademy.menu_1"
-              action="odooacademy.action_window"/>
-    <menuitem name="Server to list" id="odooacademy" parent="odooacademy.menu_2"
-              action="odooacademy.action_server"/>
+    <menuitem name="List" id="naufalacademy.menu_1_list" parent="naufalacademy.menu_1"
+              action="naufalacademy.action_window"/>
+    <menuitem name="Server to list" id="naufalacademy" parent="naufalacademy.menu_2"
+              action="naufalacademy.action_server"/>
 -->
   </data>
 </odoo>

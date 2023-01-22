@@ -7,10 +7,11 @@ class course(models.Model):
     _name = 'rifkiacademy.course'
     _description = 'rifkiacademy.course'
 
-    name = fields.Char('Title')
+    name = fields.Char('Title', required=True)
+    description = fields.Text('Description')
+
     # value = fields.Integer()
     # value2 = fields.Float(compute="_value_pc", store=True)
-    description = fields.Text('Description')
 
     # @api.depends('value')
     # def _value_pc(self):

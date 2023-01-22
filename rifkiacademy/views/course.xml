@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
- <!-- bagoesacademy.course tree view -->
-    <record id="bagoesacademy_course_view_tree" model="ir.ui.view">
-        <field name="name">bagoesacademy.course.view.tree</field>
-        <field name="model">bagoesacademy.course</field>
+     <!-- odooacademy.course tree view -->
+    <record id="rifkiacademy_course_view_tree" model="ir.ui.view">
+        <field name="name">rifkiacademy.course.view.tree</field>
+        <field name="model">rifkiacademy.course</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
@@ -12,10 +12,10 @@
         </field>
     </record>
     
-    <!-- bagoesacademyy.course form view -->
-    <record id="odooacademy_academy_view_form" model="ir.ui.view">
-        <field name="name">bagoesacademy.course.view.form</field>
-        <field name="model">bagoesacademy.course</field>
+    <!-- odooacademy.course form view -->
+    <record id="rifkiacademy_academy_view_form" model="ir.ui.view">
+        <field name="name">rifkiacademy.course.view.form</field>
+        <field name="model">rifkiacademy.course</field>
         <field name="arch" type="xml">
             <form string="">
                 <sheet>
@@ -31,19 +31,17 @@
             </form>
         </field>
     </record>
-
-
     <!-- model.name action window -->
     <record id="course_action" model="ir.actions.act_window">
         <field name="name">Course</field>
-        <field name="res_model">bagoesacademy.course</field>
+        <field name="res_model">rifkiacademy.course</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
-    <menuitem id="bagoesacademy_menu_root" name="Bagoes Academy" sequence="10"/>
+    <menuitem id="rifkiacademy_menu_root" name="Odoo Academy" sequence="10"/>
 
     <!-- This Menu Item must have a parent and an action -->
-    <menuitem id="course_menu_act" name="Course" parent="bagoesacademy_menu_root" action="course_action" sequence="10"/>
+    <menuitem id="course_menu_act" name="Course" parent="rifkiacademy_menu_root" action="course_action" sequence="10"/>
 
 </odoo>

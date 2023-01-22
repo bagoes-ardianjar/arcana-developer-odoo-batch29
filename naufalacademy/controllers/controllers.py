@@ -2,20 +2,20 @@
 # from odoo import http
 
 
-# class Odooacademy(http.Controller):
-#     @http.route('/odooacademy/odooacademy', auth='public')
+# class Naufalacademy(http.Controller):
+#     @http.route('/naufalacademy/naufalacademy', auth='public')
 #     def index(self, **kw):
 #         return "Hello, world"
 
-#     @http.route('/odooacademy/odooacademy/objects', auth='public')
+#     @http.route('/naufalacademy/naufalacademy/objects', auth='public')
 #     def list(self, **kw):
-#         return http.request.render('odooacademy.listing', {
-#             'root': '/odooacademy/odooacademy',
-#             'objects': http.request.env['odooacademy.odooacademy'].search([]),
+#         return http.request.render('naufalacademy.listing', {
+#             'root': '/naufalacademy/naufalacademy',
+#             'objects': http.request.env['naufalacademy.naufalacademy'].search([]),
 #         })
 
-#     @http.route('/odooacademy/odooacademy/objects/<model("odooacademy.odooacademy"):obj>', auth='public')
+#     @http.route('/naufalacademy/naufalacademy/objects/<model("naufalacademy.naufalacademy"):obj>', auth='public')
 #     def object(self, obj, **kw):
-#         return http.request.render('odooacademy.object', {
+#         return http.request.render('naufalacademy.object', {
 #             'object': obj
 #         })
