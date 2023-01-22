@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- dawamraja.course search view -->
+    <record id="dawamraja_course_view_search" model="ir.ui.view">
+        <field name="name">dawamraja.course.view.search</field>
+        <field name="model">dawamraja.course</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
+
+
     <!-- dawamraja.course form view -->
-    <record id="dawamraja.course_view_form" model="ir.ui.view">
+    <record id="dawamraja_course_view_form" model="ir.ui.view">
         <field name="name">dawamraja.course.view.form</field>
         <field name="model">dawamraja.course</field>
         <field name="arch" type="xml">
