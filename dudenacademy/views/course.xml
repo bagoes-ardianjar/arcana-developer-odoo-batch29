@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
- <!-- bagoesacademy.course tree view -->
-    <record id="bagoesacademy_course_view_tree" model="ir.ui.view">
-        <field name="name">bagoesacademy.course.view.tree</field>
-        <field name="model">bagoesacademy.course</field>
+    <!-- dudenacademy.course tree view -->
+    <record id="dudenacademy_course_view_tree" model="ir.ui.view">
+        <field name="name">dudenacademy.course.view.tree</field>
+        <field name="model">dudenacademy.course</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
@@ -11,11 +11,11 @@
             </tree>
         </field>
     </record>
-    
-    <!-- bagoesacademyy.course form view -->
-    <record id="odooacademy_academy_view_form" model="ir.ui.view">
-        <field name="name">bagoesacademy.course.view.form</field>
-        <field name="model">bagoesacademy.course</field>
+
+    <!-- dudenacademy.course form view -->
+    <record id="dudenacademy_academy_view_form" model="ir.ui.view">
+        <field name="name">dudenacademy.course.view.form</field>
+        <field name="model">dudenacademy.course</field>
         <field name="arch" type="xml">
             <form string="">
                 <sheet>
@@ -32,18 +32,17 @@
         </field>
     </record>
 
-
     <!-- model.name action window -->
     <record id="course_action" model="ir.actions.act_window">
         <field name="name">Course</field>
-        <field name="res_model">bagoesacademy.course</field>
+        <field name="res_model">dudenacademy.course</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
-    <menuitem id="bagoesacademy_menu_root" name="Bagoes Academy" sequence="10"/>
+    <menuitem id="dudenacademy_menu_root" name="Duden Academy" sequence="10"/>
 
     <!-- This Menu Item must have a parent and an action -->
-    <menuitem id="course_menu_act" name="Course" parent="bagoesacademy_menu_root" action="course_action" sequence="10"/>
+    <menuitem id="course_menu_act" name="Course" parent="dudenacademy_menu_root" action="course_action" sequence="10"/>
 
 </odoo>

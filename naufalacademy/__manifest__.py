@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Odoo Academy",
+    'name': "Naufal Academy",
 
     'summary': """
         Addons training batch 29""",
@@ -9,8 +9,8 @@
         Addons training batch 29"
     """,
 
-    'author': "Technoly",
-    'website': "http://www.technology.com",
+    'author': "Naufal Nabila",
+    'website': "http://www.naufalnabila.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
