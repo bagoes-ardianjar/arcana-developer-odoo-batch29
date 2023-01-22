@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
- <!-- bagoesacademy.course tree view -->
-    <record id="bagoesacademy_course_view_tree" model="ir.ui.view">
-        <field name="name">bagoesacademy.course.view.tree</field>
-        <field name="model">bagoesacademy.course</field>
+    <!-- naufalacademy.course tree view -->
+    <record id="naufalacademy_course_view_tree" model="ir.ui.view">
+        <field name="name">naufalacademy.course.view.tree</field>
+        <field name="model">naufalacademy.course</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
@@ -12,10 +12,10 @@
         </field>
     </record>
     
-    <!-- bagoesacademyy.course form view -->
-    <record id="odooacademy_academy_view_form" model="ir.ui.view">
-        <field name="name">bagoesacademy.course.view.form</field>
-        <field name="model">bagoesacademy.course</field>
+    <!-- naufalacademy.course form view -->
+    <record id="naufalacademy_academy_view_form" model="ir.ui.view">
+        <field name="name">naufalacademy.course.view.form</field>
+        <field name="model">naufalacademy.course</field>
         <field name="arch" type="xml">
             <form string="">
                 <sheet>
@@ -32,10 +32,10 @@
         </field>
     </record>
 
-        <!-- bagoesacademy.course search view -->
-    <record id="bagoesacademy_course_view_search" model="ir.ui.view">
-        <field name="name">bagoesacademy.course.view.search</field>
-        <field name="model">bagoesacademy.course</field>
+    <!-- naufalacademy.course search view -->
+    <record id="naufalacademy_course_view_search" model="ir.ui.view">
+        <field name="name">naufalacademy.course.view.search</field>
+        <field name="model">naufalacademy.course</field>
         <field name="arch" type="xml">
             <search string="Search Description">
                 <!-- Add your fields here -->
@@ -45,18 +45,17 @@
         </field>
     </record>
 
-
     <!-- model.name action window -->
     <record id="course_action" model="ir.actions.act_window">
         <field name="name">Course</field>
-        <field name="res_model">bagoesacademy.course</field>
+        <field name="res_model">naufalacademy.course</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
-    <menuitem id="bagoesacademy_menu_root" name="Bagoes Academy" sequence="10"/>
+    <menuitem id="naufalacademy_menu_root" name="Odoo Academy" sequence="10"/>
 
     <!-- This Menu Item must have a parent and an action -->
-    <menuitem id="course_menu_act" name="Course" parent="bagoesacademy_menu_root" action="course_action" sequence="10"/>
+    <menuitem id="course_menu_act" name="Course" parent="naufalacademy_menu_root" action="course_action" sequence="10"/>
 
 </odoo>

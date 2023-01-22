@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class odooacademy(models.Model):
-#     _name = 'odooacademy.odooacademy'
-#     _description = 'odooacademy.odooacademy'
+# class naufalacademy(models.Model):
+#     _name = 'naufalacademy.naufalacademy'
+#     _description = 'naufalacademy.naufalacademy'
 
 #     name = fields.Char()
 #     value = fields.Integer()
