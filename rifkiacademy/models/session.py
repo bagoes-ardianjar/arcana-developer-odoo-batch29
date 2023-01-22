@@ -16,3 +16,12 @@ class Session(models.Model):
     duration = fields.Float('Duration')
     number_of_seats = fields.Float('Number Of Seats')
     description = fields.Text('Description')
+    taken_seats = fields.Float(string='Taken Seats', compute='_count_taken_seats', store=True)
+
+    @api.depends('partner_ids','number_of_seats')
+    def _count_taken_seats(self):
+        for rec in self:
+            if rec.partner_ids and rec.number_of_seats:
+                rec.taken_seats = len(rec.partner_ids) / rec.number_of_seats * 100
+            else:
+                rec.taken_seats = 0
