@@ -9,3 +9,7 @@ class Session(models.Model):
     duration = fields.Float('Duration')
     number_of_seats = fields.Float('Number Of Seats')
     description = fields.Text('Description')
+
+    course_id = fields.Many2one('dawamraja.course', string='Course')
+    user_id = fields.Many2one('res.users', string='Instructor')
+    partner_ids = fields.Many2many('res.partner', string='Attendees')
