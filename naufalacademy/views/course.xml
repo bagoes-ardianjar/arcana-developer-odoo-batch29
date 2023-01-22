@@ -32,6 +32,19 @@
         </field>
     </record>
 
+    <!-- naufalacademy.course search view -->
+    <record id="naufalacademy_course_view_search" model="ir.ui.view">
+        <field name="name">naufalacademy.course.view.search</field>
+        <field name="model">naufalacademy.course</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
+
     <!-- model.name action window -->
     <record id="course_action" model="ir.actions.act_window">
         <field name="name">Course</field>

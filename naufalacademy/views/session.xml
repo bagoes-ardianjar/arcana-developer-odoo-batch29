@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- naufalacademy.session tree view -->
+    <record id="naufalacademy.session_view_tree" model="ir.ui.view">
+        <field name="name">naufalacademy.session.view.tree</field>
+        <field name="model">naufalacademy.session</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="number_of_seats"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- naufalacademy.session form view -->
+    <record id="naufalacademy.session_view_form" model="ir.ui.view">
+        <field name="name">naufalacademy.session.view.form</field>
+        <field name="model">naufalacademy.session</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="number_of_seats"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="duration"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- naufalacademy.session action window -->
+    <record id="naufalacademy_session_action" model="ir.actions.act_window">
+        <field name="name">Session</field>
+        <field name="res_model">naufalacademy.session</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="session_menu_act" name="Session" parent="naufalacademy_menu_root" action="naufalacademy_session_action" sequence="20"/>
+
+</odoo>
