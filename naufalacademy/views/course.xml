@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- naufalacademy.course tree view -->
+    <record id="naufalacademy_course_view_tree" model="ir.ui.view">
+        <field name="name">naufalacademy.course.view.tree</field>
+        <field name="model">naufalacademy.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- naufalacademy.course form view -->
+    <record id="naufalacademy_academy_view_form" model="ir.ui.view">
+        <field name="name">naufalacademy.course.view.form</field>
+        <field name="model">naufalacademy.course</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- model.name action window -->
+    <record id="course_action" model="ir.actions.act_window">
+        <field name="name">Course</field>
+        <field name="res_model">naufalacademy.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="naufalacademy_menu_root" name="Odoo Academy" sequence="10"/>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="course_menu_act" name="Course" parent="naufalacademy_menu_root" action="course_action" sequence="10"/>
+
+</odoo>
