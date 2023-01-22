@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
- <!-- bagoesacademy.course tree view -->
+    <!-- bagoesacademy.course tree view -->
     <record id="bagoesacademy_course_view_tree" model="ir.ui.view">
         <field name="name">bagoesacademy.course.view.tree</field>
         <field name="model">bagoesacademy.course</field>
@@ -13,8 +13,8 @@
         </field>
     </record>
     
-    <!-- bagoesacademyy.course form view -->
-    <record id="odooacademy_academy_view_form" model="ir.ui.view">
+    <!-- bagoesacademy.course form view -->
+    <record id="bagoesacademy_academy_view_form" model="ir.ui.view">
         <field name="name">bagoesacademy.course.view.form</field>
         <field name="model">bagoesacademy.course</field>
         <field name="arch" type="xml">
@@ -28,13 +28,16 @@
                         <page string="Description" name="description">
                             <field name="description"/>
                         </page>
+                        <page string="Sessions" name="session_ids">
+                            <field name="session_ids"/>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
         </field>
     </record>
 
-        <!-- bagoesacademy.course search view -->
+    <!-- bagoesacademy.course search view -->
     <record id="bagoesacademy_course_view_search" model="ir.ui.view">
         <field name="name">bagoesacademy.course.view.search</field>
         <field name="model">bagoesacademy.course</field>
@@ -46,7 +49,6 @@
             </search>
         </field>
     </record>
-
 
     <!-- model.name action window -->
     <record id="course_action" model="ir.actions.act_window">
