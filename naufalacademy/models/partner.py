@@ -1,0 +1,9 @@
+# -*- coding: utf-8 -*-
+
+from odoo import models, fields, api
+
+
+class InheritPartner(models.Model):
+    _inherit = 'res.partner'
+
+    session_ids = fields.Many2many('naufalacademy.session', string='Sessions')
