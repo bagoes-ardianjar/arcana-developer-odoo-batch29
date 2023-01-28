@@ -6,13 +6,13 @@
         <field name="model">naufalacademy.course</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
-                <field name="user_id"/>
-                <field name="description"/>
+                <field name="name" />
+                <field name="user_id" />
+                <field name="description" />
             </tree>
         </field>
     </record>
-    
+
     <!-- naufalacademy.course form view -->
     <record id="naufalacademy_academy_view_form" model="ir.ui.view">
         <field name="name">naufalacademy.course.view.form</field>
@@ -21,15 +21,25 @@
             <form string="">
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="user_id"/>
+                        <field name="name" />
+                        <field name="user_id" />
                     </group>
                     <notebook>
                         <page string="Description" name="description">
-                            <field name="description"/>
+                            <field name="description" />
                         </page>
                         <page string="Sessions" name="session_ids">
-                            <field name="session_ids"/>
+                            <field name="session_ids">
+                                <tree editable="bottom">
+                                    <field name="name" />
+                                    <field name="partner_id" />
+                                    <!-- <field name="course_id"/> -->
+                                    <field name="number_of_seats" />
+                                    <field name="start_date" />
+                                    <field name="duration" />
+                                    <field name="taken_seats" widget="progressbar" />
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
@@ -44,8 +54,8 @@
         <field name="arch" type="xml">
             <search string="Search Description">
                 <!-- Add your fields here -->
-                <field name="name"/>
-                <field name="description"/>
+                <field name="name" />
+                <field name="description" />
             </search>
         </field>
     </record>
@@ -58,9 +68,10 @@
     </record>
 
     <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
-    <menuitem id="naufalacademy_menu_root" name="Odoo Academy" sequence="10"/>
+    <menuitem id="naufalacademy_menu_root" name="Odoo Academy" sequence="10" />
 
     <!-- This Menu Item must have a parent and an action -->
-    <menuitem id="course_menu_act" name="Course" parent="naufalacademy_menu_root" action="course_action" sequence="10"/>
+    <menuitem id="course_menu_act" name="Course" parent="naufalacademy_menu_root"
+        action="course_action" sequence="10" />
 
 </odoo>
