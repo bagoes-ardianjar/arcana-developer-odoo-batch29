@@ -76,11 +76,51 @@
         </field>
     </record>
 
+     <!-- odooacademy.session kanban view -->
+    <record id="rifkiacademy.session_view_kanban" model="ir.ui.view">
+        <field name="name">rifkiacademy.session.view.kanban</field>
+        <field name="model">rifkiacademy.session</field>
+        <field name="arch" type="xml">
+            <!-- Add your fields here -->
+            <kanban string="Kanban Description" default_group_by="course_id">
+				<field name="id"/>
+				<field name="name"/>
+				<field name="start_date"/>
+				<field name="duration"/>
+				<field name="number_of_seats"/>
+				<field name="partner_id"/>
+				<field name="course_id"/>
+				<field name="taken_seats"/>
+				<field name="active"/>
+				<templates>
+					<t t-name="kanban-box">
+						<div t-attf-class="oe_kanban_card oe_kanban_global_click">
+							<div class="o_kanban_record_top mb16">
+								<div class="o_kanban_record_headings mt4">
+									<strong class="o_kanban_record_title"><strong><t t-esc="record.name.value"/></strong></strong>
+								</div>
+								<strong><field name="number_of_seats"/></strong>
+							</div>
+							<div class="o_kanban_record_bottom">
+								<div class="oe_kanban_bottom_left text-muted">
+									<span><t t-esc="record.course_id.value"/> <t t-esc="record.start_date.value"/></span>
+								</div>
+								<div class="oe_kanban_bottom_right">
+									<field name="taken_seats" widget="progressbar"/>
+								</div>
+							</div>
+						</div>
+					</t>
+				</templates>
+			</kanban>
+        </field>
+    </record>
+
     <!-- odooacademy.session action window -->
     <record id="rifkiacademy_session_action" model="ir.actions.act_window">
         <field name="name">Session</field>
         <field name="res_model">rifkiacademy.session</field>
-        <field name="view_mode">tree,form,calendar,graph</field>
+        <field name="view_mode">tree,form,calendar,graph,kanban</field>
     </record>
 
     <!-- This Menu Item must have a parent and an action -->
