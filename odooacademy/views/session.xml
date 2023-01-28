@@ -62,11 +62,25 @@
         </field>
     </record>
 
+    <!-- odooaacademy.session graph view -->
+    <record id="odooacademy.session_view_graph" model="ir.ui.view">
+        <field name="name">odooacademy.session.view.graph</field>
+        <field name="model">odooacademy.session</field>
+        <field name="arch" type="xml">
+            <graph string="Graph Description">
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="course_id"/>
+                <field name="taken_seats" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
     <!-- odooacademy.session action window -->
     <record id="odooacademy_session_action" model="ir.actions.act_window">
         <field name="name">Session</field>
         <field name="res_model">odooacademy.session</field>
-        <field name="view_mode">tree,form,calendar</field>
+        <field name="view_mode">tree,form,calendar,graph</field>
     </record>
 
     <!-- This Menu Item must have a parent and an action -->
