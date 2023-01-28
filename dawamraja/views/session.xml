@@ -50,11 +50,24 @@
         </field>
     </record>
 
+
+    <!-- dawamraja.session calendar view -->
+    <record id="dawamraja.session_view_calendar" model="ir.ui.view">
+        <field name="name">dawamraja.session.view.calendar</field>
+        <field name="model">dawamraja.session</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendar Description" date_start="start_date" color="course_id">
+                <!-- Add your fields here -->
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
     <!-- dawamraja.session action window -->
     <record id="dawamraja_session_action" model="ir.actions.act_window">
         <field name="name">Session</field>
         <field name="res_model">dawamraja.session</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,calendar</field>
     </record>
 
     <!-- This Menu Item must have a parent and an action -->
