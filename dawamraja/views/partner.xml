@@ -12,8 +12,8 @@
                 <field name="is_instructor"/>
             </field>
 
-            <xpath expr="//page[@name='internal_notes' ]" position="after">
-                <page name="session_ids" string="Session">
+            <xpath expr="//notebook" position="inside">
+                <page name="session_ids" string="Sessions">
                     <field name="session_ids"/>
                 </page>
             </xpath>
