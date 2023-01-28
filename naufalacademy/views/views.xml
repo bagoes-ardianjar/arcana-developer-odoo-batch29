@@ -1,39 +1,48 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-<!--
+    <!--
     <record model="ir.ui.view" id="naufalacademy.list">
-      <field name="name">naufalacademy list</field>
-      <field name="model">naufalacademy.naufalacademy</field>
+      <field
+    name="name">naufalacademy list</field>
+      <field
+    name="model">naufalacademy.naufalacademy</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
+    <field name="name"/>
           <field name="value"/>
           <field name="value2"/>
         </tree>
-      </field>
+    </field>
     </record>
 -->
 
     <!-- actions opening views on models -->
-<!--
+    <!--
     <record model="ir.actions.act_window" id="naufalacademy.action_window">
-      <field name="name">naufalacademy window</field>
-      <field name="res_model">naufalacademy.naufalacademy</field>
-      <field name="view_mode">tree,form</field>
+      <field
+    name="name">naufalacademy window</field>
+      <field
+    name="res_model">naufalacademy.naufalacademy</field>
+      <field
+    name="view_mode">tree,form</field>
     </record>
 -->
 
     <!-- server action to the one above -->
-<!--
+    <!--
     <record model="ir.actions.server" id="naufalacademy.action_server">
-      <field name="name">naufalacademy server</field>
-      <field name="model_id" ref="model_naufalacademy_naufalacademy"/>
+      <field
+    name="name">naufalacademy server</field>
+      <field name="model_id"
+    ref="model_naufalacademy_naufalacademy"/>
       <field name="state">code</field>
-      <field name="code">
+      <field
+    name="code">
         action = {
           "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
+          "view_mode":
+    "tree,form",
           "res_model": model._name,
         }
       </field>
@@ -41,19 +50,20 @@
 -->
 
     <!-- Top menu item -->
-<!--
+    <!--
     <menuitem name="naufalacademy" id="naufalacademy.menu_root"/>
 -->
     <!-- menu categories -->
-<!--
+    <!--
     <menuitem name="Menu 1" id="naufalacademy.menu_1" parent="naufalacademy.menu_root"/>
     <menuitem name="Menu 2" id="naufalacademy.menu_2" parent="naufalacademy.menu_root"/>
 -->
     <!-- actions -->
-<!--
+    <!--
     <menuitem name="List" id="naufalacademy.menu_1_list" parent="naufalacademy.menu_1"
-              action="naufalacademy.action_window"/>
-    <menuitem name="Server to list" id="naufalacademy" parent="naufalacademy.menu_2"
+    action="naufalacademy.action_window"/>
+    <menuitem name="Server to list" id="naufalacademy"
+    parent="naufalacademy.menu_2"
               action="naufalacademy.action_server"/>
 -->
   </data>
