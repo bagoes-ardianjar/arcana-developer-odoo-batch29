@@ -13,7 +13,7 @@
         </field>
     </record>
     
-    <!-- bagoesacademy.course form view -->
+    <!-- odbagoesacademyooacademy.course form view -->
     <record id="bagoesacademy_academy_view_form" model="ir.ui.view">
         <field name="name">bagoesacademy.course.view.form</field>
         <field name="model">bagoesacademy.course</field>
@@ -29,7 +29,17 @@
                             <field name="description"/>
                         </page>
                         <page string="Sessions" name="session_ids">
-                            <field name="session_ids"/>
+                            <field name="session_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <!-- <field name="course_id"/> -->
+                                    <field name="number_of_seats"/>
+                                    <field name="start_date"/>
+                                    <field name="duration"/>
+                                    <field name="taken_seats" widget="progressbar"/>
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
@@ -46,6 +56,13 @@
                 <!-- Add your fields here -->
                 <field name="name"/>
                 <field name="description"/>
+
+                <filter name="my_course" string="My Course"
+                        domain="[('user_id', '=', uid)]"/>
+                <group string="Group By">
+                    <filter name="group_by_responsible" string="Responsible User"
+                            context="{'group_by': 'user_id'}"/>
+                </group>
             </search>
         </field>
     </record>
@@ -55,6 +72,7 @@
         <field name="name">Course</field>
         <field name="res_model">bagoesacademy.course</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_my_course':1}</field>
     </record>
 
     <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
