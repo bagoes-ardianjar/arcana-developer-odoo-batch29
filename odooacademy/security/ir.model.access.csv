@@ -1,5 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_odooacademy_course,odooacademy.course,model_odooacademy_course,,1,1,1,1
-access_odooacademy_session,odooacademy.session,model_odooacademy_session,,1,1,1,1
+access_odooacademy_course,odooacademy.course,model_odooacademy_course,,1,0,0,0
+access_odooacademy_session,odooacademy.session,model_odooacademy_session,,1,0,0,0
+access_odooacademy_course_manager,odooacademy.course_manager,model_odooacademy_course,odooacademy_manager,1,1,1,1
+access_odooacademy_session_manager,odooacademy.session_manager,model_odooacademy_session,odooacademy_manager,1,1,1,1
 
 
