@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_bagoesacademy_course,bagoesacademy.course,model_bagoesacademy_course,,1,1,1,1
-access_bagoesacademy_session,bagoesacademy.session,model_bagoesacademy_session,,1,1,1,1
+access_bagoesacademy_course,bagoesacademy.course,model_bagoesacademy_course,,1,0,0,0
+access_bagoesacademy_session,bagoesacademy.session,model_bagoesacademy_session,,1,0,0,0
+access_bagoesacademy_course_manager,bagoesacademy.course_manager,model_bagoesacademy_course,bagoesacademy_manager,1,1,1,1
+access_bagoesacademy_session_manager,bagoesacademy.session_manager,model_bagoesacademy_session,bagoesacademy_manager,1,1,1,1
