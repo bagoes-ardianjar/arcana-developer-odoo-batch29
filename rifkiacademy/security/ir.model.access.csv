@@ -3,3 +3,4 @@ access_rifkiacademy_course,rifkiacademy.course,model_rifkiacademy_course,,1,0,0,
 access_rifkiacademy_session,rifkiacademy.session,model_rifkiacademy_session,,1,0,0,0
 access_rifkiacademy_course_manager,rifkiacademy.course_manager,model_rifkiacademy_course,rifkiacademy_manager,1,1,1,1
 access_rifkiacademy_session_manager,rifkiacademy.session_manager,model_rifkiacademy_session,rifkiacademy_manager,1,1,1,1
+access_rifkiacademy_wizard_attendees,rifkiacademy.wizard_attendees,model_wizard_attendees,,1,1,1,1

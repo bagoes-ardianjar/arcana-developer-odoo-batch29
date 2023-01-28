@@ -32,6 +32,7 @@
         'views/session.xml',
         'views/user.xml',
         'views/partner.xml',
+        'wizards/wizard_attendees.xml',
     ],
     # only loaded in demonstration mode
     # 'demo': [
