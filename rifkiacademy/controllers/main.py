@@ -7,7 +7,7 @@ class rifkiacademy(http.Controller):
         return "Hello, world"
 
     @http.route('/index/teachers/', auth='public')
-    def index(self, **kw):
+    def index2(self, **kw):
         return http.request.render('rifkiacademy.teachers', {
             'teachers': ["Ujang", "Budi", "Dedi"],
         })
@@ -20,12 +20,22 @@ class rifkiacademy(http.Controller):
         })
 
     @http.route('/courses/', auth='public', website=True)
-    def courses(self, **kw):
+    def courses2(self, **kw):
         courses = http.request.env['rifkiacademy.course'].sudo().search([])
         return http.request.render('rifkiacademy.course_websites', {
             'courses': courses,
         })
 
+    @http.route('/courses/<model("rifkiacademy.course"):course>/', auth='public', website=True)
+    def course(self, course):
+        return http.request.render('rifkiacademy.course', {
+            'course': course
+        })
+
     @http.route('/url/<name>', auth='public', website=True)
     def url_name(self, name):
         return "<h1>{}</h1>".format(name)
+
+    @http.route('/type/<int:id>', auth='public', website=True)
+    def url_type(self, id):
+        return '<h1>{} ({})</h1>'.format(id, type(id).__name__)
