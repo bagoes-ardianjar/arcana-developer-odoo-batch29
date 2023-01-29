@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- khaikal_perpustakaan.book tree view -->
+    <record id="transaction_view_tree" model="ir.ui.view">
+        <field name="name">khaikal_perpustakaan.transaction.view.tree</field>
+        <field name="model">khaikal_perpustakaan.transaction</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="tanggal_pinjam"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- khaikal_perpustakaan.transaction form view -->
+    <record id="transaction_view_form" model="ir.ui.view">
+        <field name="name">khaikal_perpustakaan.transaction.view.form</field>
+        <field name="model">khaikal_perpustakaan.transaction</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="test" type="object" string='TEST'/>
+                    <button name="action_confirm" states="draft" type="object" string="Confirm" class="btn-info" attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>
+                    <button name="action_done" states="progres" type="object" string="Done" class="btn-success" attrs="{'invisible': [('state', 'not in', ['progres'])]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,progres,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="book_id"/>
+                        </group>
+                        <group>
+                            <field name="tanggal_pinjam"/>
+                            <field name="tanggal_kembali"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <!-- model.name action window -->
+    <record id="transaction_action" model="ir.actions.act_window">
+        <field name="name">Transaksi</field>
+        <field name="res_model">khaikal_perpustakaan.transaction</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="transaction_menu_act" name="Transaksi" parent="khaikal_perpustakaan.masterdata_menu_categ" action="transaction_action"/>
+
+</odoo>

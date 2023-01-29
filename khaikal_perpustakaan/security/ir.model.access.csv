@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_khaikal_perpustakaan_book,khaikal_perpustakaan.book,model_khaikal_perpustakaan_book,,1,1,1,1
+access_khaikal_perpustakaan_transaction,khaikal_perpustakaan.transaction,model_khaikal_perpustakaan_transaction,,1,1,1,1
+access_generate_book,khaikal_perpustakaan.generate_book,model_generate_book,,1,1,1,1
