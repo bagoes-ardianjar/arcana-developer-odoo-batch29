@@ -6,7 +6,7 @@ class dawamraja_library(models.Model):
     name = fields.Char(string='Name')
     date_start = fields.Date(string='Date')
     date_finish = fields.Date(string='Date')
-    status = fields.Selection([('borrowed', 'Borrowed'), ('returned', 'Returned')], string='Status')
+    status = fields.Selection([('progress', 'Progress'), ('done', 'Done')], string='Status')
     description = fields.Text(string='Description')
 
     # Many2one relationship with partner
