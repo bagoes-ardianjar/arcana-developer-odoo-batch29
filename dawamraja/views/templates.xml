@@ -1,5 +1,59 @@
 <odoo>
     <data>
+      <template id="teachers" name="Teachers">
+        <t t-foreach="teachers" t-as="teacher">
+          <p><t t-esc="teacher"/></p>
+        </t>
+      </template>
+      <template id="courses" name="Courses">
+        <t t-foreach="courses" t-as="course">
+          <p><t t-esc="course.id"/> - <t t-esc="course.name"/></p>
+        </t>
+      </template>
+      <template id="course_websites">
+        <t t-call="website.layout">
+          <t t-set="title">Courses</t>
+          <div class="oe_structure">
+            <div class="container">
+              <div class="row pt-3">
+                <div class="col-12"><center><h3>Course Odoo Academy</h3></center></div>
+              </div>
+              <div class="row pt-3">
+                <div class="col-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <td>No</td>
+                        <td>Course</td>
+                        <td>Responsible</td>
+                        <td>Description</td>
+                        <td>Action</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <t t-set="no" t-value="1"/>
+                      <tr t-foreach="courses" t-as="course">
+                        <td><span t-esc="no"/></td>
+                        <td><span t-field="course.name"/></td>
+                        <td><span t-field="course.user_id.name"/></td>
+                        <td><span t-field="course.description"/></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- <t t-foreach="courses" t-as="course">
+                <p><t t-esc="course.id"/> <t t-esc="course.name"/></p>
+              </t> -->
+            </div>
+          </div>
+        </t>
+      </template>
+
+
+
+
 <!--
         <template id="listing">
           <ul>
