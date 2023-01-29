@@ -10,7 +10,7 @@ class Bagoesacademy(http.Controller):
     @http.route('/index/teachers/', auth='public')
     def index2(self, **kw):
         return http.request.render('bagoesacademy.teachers', {
-            'teachers': ["Bagoes", "Admin", "Dedi"],
+            'teachers': ["Bagoes", "Budi", "Dedi"],
         })
 
     @http.route('/index/courses/', auth='public')
