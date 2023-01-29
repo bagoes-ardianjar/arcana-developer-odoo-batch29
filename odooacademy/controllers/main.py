@@ -51,11 +51,28 @@ class Odooacademy(http.Controller):
             http.request.env['odooacademy.course'].sudo().create(vals)
         return http.request.redirect('/courses/')
 
-    @http.route('/courses/edit/<model("odooacademy.course"):course>/', auth='public', website=True)
-    def edit(self, course):
+    @http.route('/courses/edit/<int:id>/', auth='public', website=True)
+    def edit(self, id):
+        if id:
+            course = http.request.env['odooacademy.course'].sudo().browse(int(id))
+        users = http.request.env['res.users'].sudo().search([])
         return http.request.render('odooacademy.edit_course', {
-            'course': course
+            'course': course,
+            'users': users
         })
+
+    @http.route('/course/do-edit/', auth='public', website=True, method='POST')
+    def do_edit(self, **post):
+        if post.get('course_id'):
+            course = http.request.env['odooacademy.course'].sudo().browse(int(post.get('course_id')))
+            if course:
+                vals = {
+                    'name' : post.get('name'),
+                    'user_id': post.get('user_id'),
+                    'description': post.get('description')
+                }
+                course.sudo().write(vals)
+        return http.request.redirect('/courses/')
     
     @http.route('/courses/delete/<int:id>/', auth='public', website=True)
     def delete(self, id):

@@ -43,7 +43,7 @@
 											<td><span t-field="course.user_id.name"/></td>
 											<td><span t-field="course.description"/></td>
 											<td>
-												<a t-attf-href="/courses/edit/{{ slug(course) }}">Edit</a>
+												<a t-attf-href="/courses/edit/{{ course.id }}">Edit</a>
 												<a t-attf-href="/courses/delete/{{ course.id }}">Delete</a>
 											</td>
 											<t t-set="no" t-value="no+1"/>
@@ -91,7 +91,7 @@
 									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
 									<input type="text" name="name" class="form-control" placeholder="Course Name"/>
 									<br/>
-									<select class="form-control">
+									<select class="form-control" name="user_id">
 										<option value="#">Responsible User</option>
 										<t t-foreach="users" t-as="user">
 											<option t-attf-value="{{ user.id }}"><span t-esc="user.name"/></option>
@@ -119,9 +119,27 @@
 					<div class="container">
 						<div class="row pt-3">
 							<div class="col-12">
-								<h3><t t-esc="course.name"/></h3><br/>
-								<p><span t-field="course.user_id.name"/></p><br/>
-								<p><span t-field="course.description"/></p><br/>
+								<form method="post" action="/course/do-edit/">
+									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+									<input type="hidden" name="course_id" t-att-value="course.id"/>
+									<input type="text" name="name" class="form-control" placeholder="Course Name" t-attf-value="{{ course.name }}"/>
+									<br/>
+									<select class="form-control" name="user_id">
+										<t t-foreach="users" t-as="user">
+											<t t-if="user.id == course.user_id.id">
+												<option t-attf-value="{{ user.id }}" selected=""><span t-esc="user.name"/></option>
+											</t>
+											<t t-else="">
+												<option t-attf-value="{{ user.id }}"><span t-esc="user.name"/></option>
+											</t>
+										</t>
+									</select>
+									<br/>
+									<textarea class="form-control" name="description"><t t-esc="course.description"/></textarea>
+									<br/>
+									<br/>
+									<button type="submit" class="btn btn-success btn-md">Save</button>
+								</form>
 							</div>
 						</div>
 					</div>
