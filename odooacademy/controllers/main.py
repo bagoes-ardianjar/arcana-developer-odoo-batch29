@@ -26,3 +26,7 @@ class Odooacademy(http.Controller):
         return http.request.render('odooacademy.course_websites', {
             'courses': courses,
         })
+    
+    @http.route('/url/<name>', auth='public', website=True)
+    def url_name(self, name):
+        return "<h1>{}</h1>".format(name)
