@@ -22,28 +22,48 @@ class Dawamraja(http.Controller):
     
     @http.route('/courses/', auth='public', website=True)
     def courses2(self, **kw):
-        courses = http.request.env['dawamraja.course'].sudo().search([])
-        return http.request.render('dawamraja.course_websites', {
+        courses = http.request.env['odooacademy.course'].sudo().search([])
+        return http.request.render('odooacademy.course_websites', {
             'courses': courses,
         })
     
-    @http.route('/courses/edit/<model("dawamraja.course"):course>/', auth='public', website=True)
+    @http.route('/courses/<model("odooacademy.course"):course>/', auth='public', website=True)
+    def course(self, course):
+        return http.request.render('odooacademy.course', {
+            'course': course
+        })
+    
+    @http.route('/courses/add/', auth='public', website=True)
+    def add(self, **kw):
+        users = http.request.env['res.users'].sudo().search([])
+        return http.request.render('odooacademy.add_course', {
+            'users': users
+        })
+    
+    @http.route('/course/do-add/', auth='public', website=True, method='POST')
+    def do_add(self, **post):
+        if post:
+            vals = {
+                'name' : post.get('name'),
+                'user_id': post.get('user_id'),
+                'description': post.get('description')
+            }
+            http.request.env['odooacademy.course'].sudo().create(vals)
+        return http.request.redirect('/courses/')
+
+    @http.route('/courses/edit/<model("odooacademy.course"):course>/', auth='public', website=True)
     def edit(self, course):
-        return http.request.render('dawamraja.edit_course', {
+        return http.request.render('odooacademy.edit_course', {
             'course': course
         })
     
     @http.route('/courses/delete/<int:id>/', auth='public', website=True)
     def delete(self, id):
         if id:
-            course = http.request.env['dawamraja.course'].sudo().browse(int(id))
+            course = http.request.env['odooacademy.course'].sudo().browse(int(id))
             if course:
                 course.unlink()
-        courses = http.request.env['dawamraja.course'].sudo().search([])
-        return http.request.render('dawamraja.course_websites', {
-            'courses': courses
-        })
-
+        return http.request.redirect('/courses/')
     
     @http.route('/url/<name>', auth='public', website=True)
     def url_name(self, name):
