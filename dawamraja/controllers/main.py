@@ -26,6 +26,11 @@ class Dawamraja(http.Controller):
         return http.request.render('dawamraja.course_websites', {
             'courses': courses,
         })
+    
+    @http.route('/url/<name>', auth='public', website=True)
+    def url_name(self, name):
+        return "<h1>{}</h1>".format(name)
+
 
 
 
