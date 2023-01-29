@@ -32,7 +32,10 @@
                         <td><a t-attf-href="/courses/{{ slug(course) }}"><span t-field="course.name"/></a></td>
                         <td><span t-field="course.user_id.name"/></td>
                         <td><span t-field="course.description"/></td>
-                        <td></td>
+                        <td>
+                          <a t-attf-href="/courses/edit/{{ slug(course) }}">Edit</a>
+                          <a t-attf-href="/courses/delete/{{ course.id }}">Delete</a>
+                        </td>
                         <t t-set="no" t-value="no+1"/>
                       </tr>
                     </tbody>
@@ -56,8 +59,8 @@
               <div class="row pt-3">
                 <div class="col-12">
                   <h3><t t-esc="course.name"/></h3><br/>
-                  <p><span t-esc="course.user_id.name"/></p><br/>
-                  <p><span t-esc="course.description"/></p><br/>
+                  <p><span t-field="course.user_id.name"/></p><br/>
+                  <p><span t-field="course.description"/></p><br/>
                 </div>
               </div>
             </div>
@@ -66,9 +69,24 @@
         </t>
       </template>
 
-
-
-
+      <template id="edit_course">
+        <t t-call="website.layout">
+          <t t-set="title">Edit Course</t>
+          <div class="oe_structure"/>
+          <div class="oe_structure">
+            <div class="container">
+              <div class="row pt-3">
+                <div class="col-12">
+                  <h3><t t-esc="course.name"/></h3><br/>
+                  <p><span t-field="course.user_id.name"/></p><br/>
+                  <p><span t-field="course.description"/></p><br/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="oe_structure"/>
+        </t>
+      </template>
 
 <!--
         <template id="listing">
