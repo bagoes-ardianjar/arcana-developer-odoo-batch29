@@ -6,6 +6,6 @@
     </record>
     <record id="course2" model="ario_academy.course">
         <field name="name">Course Python Advance</field>
-        <field name="description">Course Python Advance</field>
+        <field name="description">Course Python Advanc description</field>
     </record>
 </odoo>

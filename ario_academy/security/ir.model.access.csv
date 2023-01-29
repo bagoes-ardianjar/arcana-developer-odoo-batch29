@@ -1,2 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_ario_academy_ario_academy,ario_academy.ario_academy,model_ario_academy_ario_academy,base.group_user,1,1,1,1
+access_ario_academy_course,ario_academy.course,model_ario_academy_course,,1,0,0,0
+access_ario_academy_session,ario_academy.session,model_ario_academy_session,,1,0,0,0
+access_ario_academy_course_manager,ario_academy.course_manager,model_ario_academy_course,ario_academy_manager,1,1,1,1
+access_ario_academy_session_manager,ario_academy.session_manager,model_ario_academy_session,ario_academy_manager,1,1,1,1
+access_ario_academy_course_student,ario_academy.course_student,model_ario_academy_course,ario_academy_student,1,1,0,0
+access_ario_academy_session_student,ario_academy.session_student,model_ario_academy_session,ario_academy_student,1,1,0,0
+access_ario_academy_wizard_attendees,ario_academy.wizard_attendees,model_wizard_attendees,,1,1,1,1

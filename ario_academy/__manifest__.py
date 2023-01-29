@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "ario_academy",
+    'name': "Ario Academy",
 
     'summary': """
         Training Odoo Academy from Arkana""",
@@ -15,18 +15,25 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'Training',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','website'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'data/course_data.xml'
+        'views/course.xml',
+        'views/session.xml',
+        'views/user.xml',
+        'views/partner.xml',
+        'data/course_data.xml',
+        'wizards/wizard_attendees.xml',
+        'report/session_report.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
