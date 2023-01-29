@@ -23,7 +23,7 @@ class Bagoesacademy(http.Controller):
     @http.route('/courses/', auth='public', website=True)
     def courses2(self, **kw):
         courses = http.request.env['bagoesacademy.course'].sudo().search([])
-        return http.request.render('bagoesacademy.course_websites', {
+        return http.request.render('bagoesacademy.course_websites2', {
             'courses': courses,
         })
     
@@ -51,11 +51,28 @@ class Bagoesacademy(http.Controller):
             http.request.env['bagoesacademy.course'].sudo().create(vals)
         return http.request.redirect('/courses/')
 
-    @http.route('/courses/edit/<model("bagoesacademy.course"):course>/', auth='public', website=True)
-    def edit(self, course):
+    @http.route('/courses/edit/<int:id>/', auth='public', website=True)
+    def edit(self, id):
+        if id:
+            course = http.request.env['bagoesacademy.course'].sudo().browse(int(id))
+        users = http.request.env['res.users'].sudo().search([])
         return http.request.render('bagoesacademy.edit_course', {
-            'course': course
+            'course': course,
+            'users': users
         })
+
+    @http.route('/course/do-edit/', auth='public', website=True, method='POST')
+    def do_edit(self, **post):
+        if post.get('course_id'):
+            course = http.request.env['bagoesacademy.course'].sudo().browse(int(post.get('course_id')))
+            if course:
+                vals = {
+                    'name' : post.get('name'),
+                    'user_id': post.get('user_id'),
+                    'description': post.get('description')
+                }
+                course.sudo().write(vals)
+        return http.request.redirect('/courses/')
     
     @http.route('/courses/delete/<int:id>/', auth='public', website=True)
     def delete(self, id):
@@ -65,7 +82,6 @@ class Bagoesacademy(http.Controller):
                 course.unlink()
         return http.request.redirect('/courses/')
     
-
     @http.route('/url/<name>', auth='public', website=True)
     def url_name(self, name):
         return "<h1>{}</h1>".format(name)

@@ -8,7 +8,7 @@
 
     <record id="course2" model="bagoesacademy.course">
         <field name="name">Course Python Advance</field>
-        <field name="description">Course Python Advance</field>
+        <field name="description">Course Python Advance1</field>
     </record>
 
 </odoo>
