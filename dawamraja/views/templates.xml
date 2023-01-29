@@ -1,154 +1,171 @@
 <odoo>
-    <data>
-        <template id="teachers" name="Teachers">
-            <t t-foreach="teachers" t-as="teacher">
-            <p><t t-esc="teacher"/></p>
-            </t>
-        </template>
-      
-        <template id="courses" name="Courses">
-            <t t-foreach="courses" t-as="course">
-                <p><t t-esc="course.id"/> - <t t-esc="course.name"/></p>
-            </t>
-        </template>
+	<data>
+		<template id="teachers" name="Teachers">
+			<t t-foreach="teachers" t-as="teacher">
+				<p><t t-esc="teacher"/></p>
+			</t>
+		</template>
 
-        <template id="course_websites">
-            <t t-call="website.layout">
-                <t t-set="title">Courses</t>
-                <div class="oe_structure">
-                    <div class="container">
-                        <div class="row pt-3">
-                            <div class="col-12"><center><h3>Course Odoo Academy</h3></center></div>
-                        </div>
-                        <div class="row pt-3">
-                            <a href="/courses/add" class="btn btn-info btn-md">Tambah Data</a>
-                        </div>
-                        <div class="row pt-3">
-                            <div class="col-12">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <td>No</td>
-                                            <td>Course</td>
-                                            <td>Responsible</td>
-                                            <td>Description</td>
-                                            <td>Action</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <t t-set="no" t-value="1"/>
-                                        <tr t-foreach="courses" t-as="course">
-                                            <td><span t-esc="no"/></td>
-                                            <td><a t-attf-href="/courses/{{ slug(course) }}"><span t-field="course.name"/></a></td>
-                                            <td><span t-field="course.user_id.name"/></td>
-                                            <td><span t-field="course.description"/></td>
-                                            <td>
-                                                <a t-attf-href="/courses/edit/{{ slug(course) }}">Edit</a>
-                                                <a t-attf-href="/courses/delete/{{ course.id }}">Delete</a>
-                                            </td>
-                                            <t t-set="no" t-value="no+1"/>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- <t t-foreach="courses" t-as="course">
-                            <p><t t-esc="course.id"/> <t t-esc="course.name"/></p>
-                        </t> -->
-                    </div>
-                </div>
-            </t>
-        </template>
+		<template id="courses" name="Courses">
+			<t t-foreach="courses" t-as="course">
+				<p><t t-esc="course.id"/> - <t t-esc="course.name"/></p>
+			</t>
+		</template>
 
-        <template id="course">
-            <t t-call="website.layout">
-                <t t-set="title">Course</t>
-                <div class="oe_structure"/>
-                <div class="oe_structure">
-                    <div class="container">
-                        <div class="row pt-3">
-                            <div class="col-12">
-                                <h3><t t-esc="course.name"/></h3><br/>
-                                <p><span t-field="course.user_id.name"/></p><br/>
-                                <p><span t-field="course.description"/></p><br/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="oe_structure"/>
-            </t>
-        </template>
+		<template id="course_websites">
+			<t t-call="website.layout">
+				<t t-set="title">Courses</t>
+				<div class="oe_structure">
+					<div class="container">
+						<div class="row pt-3">
+							<div class="col-12"><center><h3>Course Odoo Academy</h3></center></div>
+						</div>
+						<div class="row pt-3">
+							<a href="/courses/add" class="btn btn-info btn-md">Tambah Data</a>
+						</div>
+						<div class="row pt-3">
+							<div class="col-12">
+								<table class="table">
+									<thead>
+										<tr>
+											<td>No</td>
+											<td>Course</td>
+											<td>Responsible</td>
+											<td>Description</td>
+											<td>Action</td>
+										</tr>
+									</thead>
+									<tbody>
+										<t t-set="no" t-value="1"/>
+										<tr t-foreach="courses" t-as="course">
+											<td><span t-esc="no"/></td>
+											<td><a t-attf-href="/courses/{{ slug(course) }}"><span t-field="course.name"/></a></td>
+											<td><span t-field="course.user_id.name"/></td>
+											<td><span t-field="course.description"/></td>
+											<td>
+												<a t-attf-href="/courses/edit/{{ course.id }}">Edit</a>
+												<a t-attf-href="/courses/delete/{{ course.id }}">Delete</a>
+											</td>
+											<t t-set="no" t-value="no+1"/>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- <t t-foreach="courses" t-as="course">
+							<p><t t-esc="course.id"/> <t t-esc="course.name"/></p>
+						</t> -->
+					</div>
+				</div>
+			</t>
+		</template>
 
-        <template id="add_course">
-            <t t-call="website.layout">
-                <t t-set="title">Add Course</t>
-                <div class="oe_structure"/>
-                <div class="oe_structure">
-                    <div class="container">
-                        <div class="row pt-3">
-                            <div class="col-12">
-                                <form method="post" action="/course/do-add/">
-                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                                    <input type="text" name="name" class="form-control" placeholder="Course Name"/>
-                                    <br/>
-                                    <select class="form-control">
-                                        <option value="#">Responsible User</option>
-                                        <t t-foreach="users" t-as="user">
-                                            <option t-attf-value="{{ user.id }}"><span t-esc="user.name"/></option>
-                                        </t>
-                                    </select>
-                                    <br/>
-                                    <textarea class="form-control" name="description"></textarea>
-                                    <br/>
-                                    <br/>
-                                    <button type="submit" class="btn btn-success btn-md">Save</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="oe_structure"/>
-            </t>
-        </template>
+		<template id="course">
+			<t t-call="website.layout">
+				<t t-set="title">Course</t>
+				<div class="oe_structure"/>
+				<div class="oe_structure">
+					<div class="container">
+						<div class="row pt-3">
+							<div class="col-12">
+								<h3><t t-esc="course.name"/></h3><br/>
+								<p><span t-field="course.user_id.name"/></p><br/>
+								<p><span t-field="course.description"/></p><br/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="oe_structure"/>
+			</t>
+		</template>
 
-        <template id="edit_course">
-            <t t-call="website.layout">
-                <t t-set="title">Edit Course</t>
-                <div class="oe_structure"/>
-                <div class="oe_structure">
-                    <div class="container">
-                        <div class="row pt-3">
-                            <div class="col-12">
-                                <h3><t t-esc="course.name"/></h3><br/>
-                                <p><span t-field="course.user_id.name"/></p><br/>
-                                <p><span t-field="course.description"/></p><br/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="oe_structure"/>
-            </t>
-        </template>
+		<template id="add_course">
+			<t t-call="website.layout">
+				<t t-set="title">Add Course</t>
+				<div class="oe_structure"/>
+				<div class="oe_structure">
+					<div class="container">
+						<div class="row pt-3">
+							<div class="col-12">
+								<form method="post" action="/course/do-add/">
+									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+									<input type="text" name="name" class="form-control" placeholder="Course Name"/>
+									<br/>
+									<select class="form-control" name="user_id">
+										<option value="#">Responsible User</option>
+										<t t-foreach="users" t-as="user">
+											<option t-attf-value="{{ user.id }}"><span t-esc="user.name"/></option>
+										</t>
+									</select>
+									<br/>
+									<textarea class="form-control" name="description"></textarea>
+									<br/>
+									<br/>
+									<button type="submit" class="btn btn-success btn-md">Save</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="oe_structure"/>
+			</t>
+		</template>
 
+		<template id="edit_course">
+			<t t-call="website.layout">
+				<t t-set="title">Edit Course</t>
+				<div class="oe_structure"/>
+				<div class="oe_structure">
+					<div class="container">
+						<div class="row pt-3">
+							<div class="col-12">
+								<form method="post" action="/course/do-edit/">
+									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+									<input type="hidden" name="course_id" t-att-value="course.id"/>
+									<input type="text" name="name" class="form-control" placeholder="Course Name" t-attf-value="{{ course.name }}"/>
+									<br/>
+									<select class="form-control" name="user_id">
+										<t t-foreach="users" t-as="user">
+											<t t-if="user.id == course.user_id.id">
+												<option t-attf-value="{{ user.id }}" selected=""><span t-esc="user.name"/></option>
+											</t>
+											<t t-else="">
+												<option t-attf-value="{{ user.id }}"><span t-esc="user.name"/></option>
+											</t>
+										</t>
+									</select>
+									<br/>
+									<textarea class="form-control" name="description"><t t-esc="course.description"/></textarea>
+									<br/>
+									<br/>
+									<button type="submit" class="btn btn-success btn-md">Save</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="oe_structure"/>
+			</t>
+		</template>
 <!--
-        <template id="listing">
-          <ul>
-            <li t-foreach="objects" t-as="object">
-              <a t-attf-href="#{ root }/objects/#{ object.id }">
-                <t t-esc="object.display_name"/>
-              </a>
-            </li>
-          </ul>
-        </template>
-        <template id="object">
-          <h1><t t-esc="object.display_name"/></h1>
-          <dl>
-            <t t-foreach="object._fields" t-as="field">
-              <dt><t t-esc="field"/></dt>
-              <dd><t t-esc="object[field]"/></dd>
-            </t>
-          </dl>
-        </template>
+<template id="listing">
+<ul>
+<li t-foreach="objects" t-as="object">
+<a t-attf-href="#{ root }/objects/#{ object.id }">
+<t t-esc="object.display_name"/>
+</a>
+</li>
+</ul>
+</template>
+<template id="object">
+<h1><t t-esc="object.display_name"/></h1>
+<dl>
+<t t-foreach="object._fields" t-as="field">
+<dt><t t-esc="field"/></dt>
+<dd><t t-esc="object[field]"/></dd>
+</t>
+</dl>
+</template>
 -->
-    </data>
+	</data>
 </odoo>

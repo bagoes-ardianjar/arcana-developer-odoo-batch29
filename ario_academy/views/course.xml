@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- ario_academy.course tree view -->
+<record id="ario_academy.course_view_tree" model="ir.ui.view">
+    <field name="name">ario_academy.course.view.tree</field>
+    <field name="model">ario_academy.course</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="user_id"/>
+            <field name="description"/>
+            
+        </tree>
+    </field>
+</record>
+
+<!-- ario_academy form view -->
+<record id="ario_academy_view_form" model="ir.ui.view">
+    <field name="name">ario_academy.view.form</field>
+    <field name="model">ario_academy.course</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet>
+                <group>
+                        <field name="name"/>
+                        <field name="user_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Sessions" name="session_ids">
+                            <field name="session_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <!-- <field name="course_id"/> -->
+                                    <field name="number_of_seats"/>
+                                    <field name="start_date"/>
+                                    <field name="duration"/>
+                                    <field name="taken_seats" widget="progressbar"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!-- ario_academy search view -->
+<record id="ario_academy_view_search" model="ir.ui.view">
+    <field name="name">ario_academy.course.view.search</field>
+    <field name="model">ario_academy.course</field>
+    <field name="arch" type="xml">
+        <search string="Search Description">
+            <!-- Add your fields here -->
+            <field name="name" />
+            <field name="description" />
+
+            <filter name="my_course" string="My Course"
+                        domain="[('user_id', '=', uid)]"/>
+                <group string="Group By">
+                    <filter name="group_by_responsible" string="Responsible User"
+                            context="{'group_by': 'user_id'}"/>
+                </group>
+        </search>
+    </field>
+</record>
+
+
+
+    <!-- ario_academy.course action window -->
+    <record id="ario_academy.course_action" model="ir.actions.act_window">
+        <field name="name">Odoo Academy</field>        
+        <field name="res_model">ario_academy.course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_my_course':1}</field>
+    </record>
+
+        <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+        <menuitem id="arioacademy_menu_root" name="Odoo Academy" sequence="10"/>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="course_menu_act" name="Course" parent="arioacademy_menu_root" action="ario_academy.course_action" sequence="10"/>
+   
+
+</odoo>
