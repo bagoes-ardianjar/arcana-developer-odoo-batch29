@@ -1,5 +1,10 @@
 <odoo>
     <data>
+      <template id="teachers" name="Teachers">
+        <t t-foreach="teachers" t-as="teacher">
+          <p><t t-esc="teacher"/></p>
+        </t>
+      </template>
 <!--
         <template id="listing">
           <ul>
