@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- dawamraja_library form view -->
+    <record id="dawamraja_library_view_form" model="ir.ui.view">
+        <field name="name">dawamraja_library.view.form</field>
+        <field name="model">dawamraja_library.book</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="quatity"/>
+                    </group>
+                    <notebook>
+                        <page name="description">
+                            <field name="description"/>
+                        </page>
+                        <page name="transaction_ids" string="Transaction">
+                            <field name="transaction_ids" context="{'default_book_id': active_id}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- <record id="dawamraja_library_view_form" model="ir.ui.view">
+        <field name="name">dawamraja_library.view.form</field>
+        <field name="model">dawamraja_library.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="quatity"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        
+                        <page name="transaction_ids" string="Transaction">
+                            <field name="transaction_ids" context="{'default_book_id': active_id}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record> -->
+
+    <!-- dawamraja_library.book search view -->
+    <record id="dawamraja_library_book_view_search" model="ir.ui.view">
+        <field name="name">dawamraja_library.book.view.search</field>
+        <field name="model">dawamraja_library.book</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <!-- Add your fields here -->
+                <field name="name"></field>
+                <field name="description"></field>
+            </search>
+        </field>
+    </record>
+
+    <!-- dawamraja_library.book tree view -->
+    <record id="dawamraja_library_book_view_tree" model="ir.ui.view">
+        <field name="name">dawamraja_library.book.view.tree</field>
+        <field name="model">dawamraja_library.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="description"/>
+                <field name="avalaible"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- model.name action window -->
+    <record id="dawamraja_library_action" model="ir.actions.act_window">
+        <field name="name">Book</field>
+        <field name="res_model">dawamraja_library.book</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="dawamraja_library_menu_root" name="Perpustakaan" sequence="10"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="dawamraja_library_menu_act" 
+        name="Book" 
+        parent="dawamraja_library_menu_root" 
+        action="dawamraja_library_action" 
+        sequence="20"/>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="dawamraja_library_view_form" model="ir.ui.view">
+        <field name="name">dawamraja_library.view.form</field>
+        <field name="model">dawamraja_library.transaction</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="date_start" string="Borrowed"/>
+                            <field name="date_finish" string="Returned"/>
+                        </group>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="partner_id" string="User"/>
+                            <field name="book_id" string="Book"/>
+                            <field name="status" string="Status"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- dawamraja_library.transaction search view -->
+    <record id="dawamraja_library_transaction_view_search" model="ir.ui.view">
+        <field name="name">dawamraja_library.transaction.view.search</field>
+        <field name="model">dawamraja_library.transaction</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <!-- Add your fields here -->
+                <field name="name"></field>
+                <field name="description"></field>
+                <field name="status"></field>
+                <field name="date_start"/>
+                <field name="date_finish"/>
+                <field name="book_id"/>
+                <field name="partner_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- dawamraja_library.transaction tree view -->
+    <record id="dawamraja_library_transaction_view_tree" model="ir.ui.view">
+        <field name="name">dawamraja_library.transaction.view.tree</field>
+        <field name="model">dawamraja_library.transaction</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_finish"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- model.name action window -->
+    <record id="dawamraja_library_transaction_action" model="ir.actions.act_window">
+        <field name="name">Transaction</field>
+        <field name="res_model">dawamraja_library.transaction</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="dawamraja_library_act" 
+        name="Transaction" 
+        parent="dawamraja_library_menu_root" 
+        action="dawamraja_library_transaction_action" 
+        sequence="20"/>
+</odoo>
