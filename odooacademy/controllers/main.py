@@ -33,6 +33,24 @@ class Odooacademy(http.Controller):
             'course': course
         })
     
+    @http.route('/courses/add/', auth='public', website=True)
+    def add(self, **kw):
+        users = http.request.env['res.users'].sudo().search([])
+        return http.request.render('odooacademy.add_course', {
+            'users': users
+        })
+    
+    @http.route('/course/do-add/', auth='public', website=True, method='POST')
+    def do_add(self, **post):
+        if post:
+            vals = {
+                'name' : post.get('name'),
+                'user_id': post.get('user_id'),
+                'description': post.get('description')
+            }
+            http.request.env['odooacademy.course'].sudo().create(vals)
+        return http.request.redirect('/courses/')
+
     @http.route('/courses/edit/<model("odooacademy.course"):course>/', auth='public', website=True)
     def edit(self, course):
         return http.request.render('odooacademy.edit_course', {
@@ -45,10 +63,7 @@ class Odooacademy(http.Controller):
             course = http.request.env['odooacademy.course'].sudo().browse(int(id))
             if course:
                 course.unlink()
-        courses = http.request.env['odooacademy.course'].sudo().search([])
-        return http.request.render('odooacademy.course_websites', {
-            'courses': courses
-        })
+        return http.request.redirect('/courses/')
     
 
     @http.route('/url/<name>', auth='public', website=True)
