@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_dawamraja_course,dawamraja_course,model_dawamraja_course,,1,1,1,1
-access_dawamraja_session,dawamraja_session,model_dawamraja_session,,1,1,1,1
+access_dawamraja_course,dawamraja_course,model_dawamraja_course,,1,1,0,0
+access_dawamraja_session,dawamraja_session,model_dawamraja_session,,1,1,0,0
+access_dawamraja_course_manager,dawamraja.course_manager,model_dawamraja_course,dawamraja_manager,1,1,1,1
+access_dawamraja_session_manager,dawamraja.session_manager,model_dawamraja_session,dawamraja_manager,1,1,1,1
+access_dawamraja_wizard_attendees,dawamraja.wizard_attendees,model_wizard_attendees,,1,1,1,1

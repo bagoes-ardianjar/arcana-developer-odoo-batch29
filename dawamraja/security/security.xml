@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record model="ir.module.category" id="module_category_dawamraja">
+        <field name="name">Odoo Academy</field>
+        <field name="sequence">50</field>
+    </record>
+    <record id="dawamraja_manager" model="res.groups">
+        <field name="name">Odoo Academy /Manager</field>
+        <field name="category_id" ref="dawamraja.module_category_dawamraja"/>
+    </record>
+    <record id="rule_manager_course" model="ir.rule">
+        <field name="name">Only Responsible can modify course</field>
+        <field name="model_id" ref="dawamraja.model_dawamraja_course"/>
+        <field name="groups" eval="[(4, ref('dawamraja.dawamraja_manager'))]"/>
+        <field name="perm_read" eval="0"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="1" />
+        <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+    </record>
+
+</odoo>
