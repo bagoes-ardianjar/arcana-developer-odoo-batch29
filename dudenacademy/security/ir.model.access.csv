@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_dudenacademy_course,dudenacademy.course,model_dudenacademy_course,,1,1,1,1
-access_dudenacademy_session,dudenacademy.session,model_dudenacademy_session,,1,1,1,1
+access_dudenacademy_course,dudenacademy.course,model_dudenacademy_course,,1,0,0,0
+access_dudenacademy_session,dudenacademy.session,model_dudenacademy_session,,1,0,0,0
+access_dudenacademy_course_manager,dudenacademy.course_manager,model_dudenacademy_course,dudenacademy_manager,1,1,1,1
+access_dudenacademy_session_manager,dudenacademy.session_manager,model_dudenacademy_session,dudenacademy_manager,1,1,1,1
+access_dudenacademy_wizard_attendees,dudenacademy.wizard_attendees,model_wizard_attendees,,1,1,1,1
