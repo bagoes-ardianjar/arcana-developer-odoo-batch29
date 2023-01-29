@@ -19,3 +19,10 @@ class Odooacademy(http.Controller):
         return http.request.render('odooacademy.courses', {
             'courses': courses,
         })
+
+    @http.route('/courses/', auth='public', website=True)
+    def courses(self, **kw):
+        courses = http.request.env['odooacademy.course'].sudo().search([])
+        return http.request.render('odooacademy.course_websites', {
+            'courses': courses,
+        })

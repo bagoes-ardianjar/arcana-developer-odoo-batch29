@@ -11,6 +11,19 @@
 				<p><t t-esc="course.id"/> - <t t-esc="course.name"/></p>
 			</t>
 		</template>
+
+		<template id="course_websites">
+			<t t-call="website.layout">
+				<t t-set="title">Courses</t>
+				<div class="oe_structure">
+					<div class="container">
+						<t t-foreach="courses" t-as="course">
+							<p><t t-esc="course.id"/> <t t-esc="course.name"/></p>
+						</t>
+					</div>
+				</div>
+			</t>
+		</template>
 <!--
 <template id="listing">
 <ul>
