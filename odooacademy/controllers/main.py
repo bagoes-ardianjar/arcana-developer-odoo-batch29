@@ -30,3 +30,7 @@ class Odooacademy(http.Controller):
     @http.route('/url/<name>', auth='public', website=True)
     def url_name(self, name):
         return "<h1>{}</h1>".format(name)
+    
+    @http.route('/type/<int:id>', auth='public', website=True)
+    def url_type(self, id):
+        return '<h1>{} ({})</h1>'.format(id, type(id).__name__)
