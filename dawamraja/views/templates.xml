@@ -5,11 +5,6 @@
           <p><t t-esc="teacher"/></p>
         </t>
       </template>
-      <template id="courses" name="Courses">
-        <t t-foreach="courses" t-as="course">
-          <p><t t-esc="course.id"/> - <t t-esc="course.name"/></p>
-        </t>
-      </template>
       <template id="course_websites">
         <t t-call="website.layout">
           <t t-set="title">Courses</t>
@@ -34,10 +29,11 @@
                       <t t-set="no" t-value="1"/>
                       <tr t-foreach="courses" t-as="course">
                         <td><span t-esc="no"/></td>
-                        <td><span t-field="course.name"/></td>
+                        <td><a t-attf-href="/courses/{{ slug(course) }}"><span t-field="course.name"/></a></td>
                         <td><span t-field="course.user_id.name"/></td>
                         <td><span t-field="course.description"/></td>
                         <td></td>
+                        <t t-set="no" t-value="no+1"/>
                       </tr>
                     </tbody>
                   </table>
@@ -50,6 +46,26 @@
           </div>
         </t>
       </template>
+
+      <template id="course">
+        <t t-call="website.layout">
+          <t t-set="title">Course</t>
+          <div class="oe_structure"/>
+          <div class="oe_structure">
+            <div class="container">
+              <div class="row pt-3">
+                <div class="col-12">
+                  <h3><t t-esc="course.name"/></h3><br/>
+                  <p><span t-esc="course.user_id.name"/></p><br/>
+                  <p><span t-esc="course.description"/></p><br/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="oe_structure"/>
+        </t>
+      </template>
+
 
 
 
